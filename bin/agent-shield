@@ -1,0 +1,5 @@
+#!/bin/sh
+# Launcher for agent-shield: runs the agent_shield package from this repository.
+# -P: don't let a file in the current directory shadow the package.
+repo=$(dirname "$(dirname "$(readlink -f "$0")")")
+PYTHONPATH="$repo${PYTHONPATH:+:$PYTHONPATH}" exec python3 -P -m agent_shield "$@"
